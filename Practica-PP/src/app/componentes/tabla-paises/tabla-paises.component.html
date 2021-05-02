@@ -1,0 +1,9 @@
+<div *ngFor="let item of this.listadoPaises">
+    <li *ngIf="item.population > 40000000" (click)="PaisSeleccionado(item)" class="list-group-item d-flex justify-content-between lh-condensed">
+        <div>
+            <h6 class="my-0">{{item.name}}</h6>
+            <small class="text-muted">{{item.capital}}</small>
+        </div>
+        <span class="text-muted"><img style="width: 50px;" src="{{item.flag}}"></span>
+    </li>
+</div>

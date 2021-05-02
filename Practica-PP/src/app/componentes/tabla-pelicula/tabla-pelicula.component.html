@@ -1,0 +1,29 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+<h1 class="display-3">Listado</h1>
+<table border=3 class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Fecha</th>
+        <th>Cantidad</th>
+        <th>Foto</th>
+        <th>Detalles</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listado" >
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.tipo}}</td>
+            <td>{{item.fechaDeEstreno}}</td>
+            <td>{{item.cantidadDePublico}}</td>
+            <td> <img src="{{item.FotoDeLaPelicula}}" width="100"> </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" (click)="mostrar(item)">
+                    Show Details
+                </button>   
+            </td>
+        </tr>
+    </tbody>
+</table>

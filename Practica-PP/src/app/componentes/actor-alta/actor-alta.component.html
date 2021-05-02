@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Checkout example for Bootstrap</title>
+
+
+</head>
+
+<body class="bg-light">
+
+  <div class="container">
+    <div class="py-5 text-center">
+      <br>
+      <h1>Alta Actores</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted center">Paises</span>
+        </h4>
+        <ul class="list-group mb-3">
+
+          <app-tabla-paises (paisSeleccionado)="paisElegido($event)"></app-tabla-paises>
+        </ul>
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Datos del Actor</h4>
+        <form class="needs-validation" [formGroup]="forma" (ngSubmit)="enviar()">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+              <small class="invalid" *ngIf="forma.controls.nombre.errors?.required && forma.controls.nombre.touched">El
+                nombre es requerido</small>
+              <small class="invalid"
+                *ngIf="forma.controls.nombre.errors?.contiene && forma.controls.nombre.touched">Tiene espacios</small>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" formControlName="apellido">
+              <small class="invalid" *ngIf="forma.controls.apellido.errors?.required && forma.controls.apellido.touched">El
+                apellido es requerido</small>
+              <small class="invalid"
+                *ngIf="forma.controls.apellido.errors?.contiene && forma.controls.apellido.touched">Tiene
+                espacios</small>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="dni" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+            <small class="invalid"
+              *ngIf="forma.controls.edad.errors?.max || forma.controls.edad.errors?.min && forma.controls.edad.touched">Edad
+              fuera de rango</small>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Ingrese email" formControlName="email">
+            <small class="invalid"
+              *ngIf="forma.controls.email.errors?.required && forma.controls.email.touched">El
+              email es requerido</small>
+            <small class="invalid"
+              *ngIf="forma.controls.email.errors?.contiene && forma.controls.email.touched">Tiene
+              espacios</small>
+          </div>
+
+          <div class="mb-3">
+            <label for="direccion" class="form-label">Direccion</label>
+            <input type="direccion" class="form-control" id="direccion" placeholder="Ingrese direccion" formControlName="direccion">
+            <small class="invalid"
+              *ngIf="forma.controls.direccion.errors?.required && forma.controls.direccion.touched">La
+              Direccion es requerido</small>
+            <small class="invalid"
+              *ngIf="forma.controls.direccion.errors?.contiene && forma.controls.direccion.touched">Tiene
+              espacios</small>
+          </div>
+          <div class="mb-3">
+            <label for="pais">Pais Seleccionado</label>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <label for="pais" *ngIf="this.pais.pais == 'nada'" class="text-muted">Seleccione Pais</label>
+              <div *ngIf="this.pais.pais != 'nada'">
+                <h6 class="my-0">{{this.pais.pais}}</h6>
+                <small class="text-muted">{{this.pais.capital}}</small>
+              </div>
+              <span class="text-muted"><img style="width: 50px;" src="{{this.pais.path}}"></span>
+            </li>
+            <small class="invalid" *ngIf="this.pais.pais == 'nada'">El pais es requerido</small>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 mb-5">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
+                <label for="recordar" class="form-check-label" for="terminos">
+                  Aceptar términos y condiciones
+                </label>
+              </div>
+            </div>
+            <div class="col-md-12 d-grid gap-2">
+              <button type="submit" class="btn btn-outline-success btn-block"
+                [disabled]="forma.invalid || !forma.controls.terminos.value || this.pais.pais == 'nada'">
+                Aceptar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
