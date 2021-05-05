@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Alta Pelicula</title>
+
+
+</head>
+
+<body class="bg-light">
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <br>
+            <h1>Alta Peliculas</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted center">Actores</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <app-tabla-actores style="min-width: 570px;" (actorSeleccionado)="agregarActor($event)"></app-tabla-actores>
+                </ul>
+            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Datos de la Pelicula</h4>
+                <form class="needs-validation" [formGroup]="forma" (ngSubmit)="enviar()">
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
+                            formControlName="nombre">
+                        <small class="invalid"
+                            *ngIf="forma.controls.nombre.errors?.required && forma.controls.nombre.touched">El
+                            nombre es requerido</small>
+                        
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo</label>
+                        <input type="text" class="form-control" id="tipo" placeholder="Ingrese Tipo"
+                            formControlName="tipo">
+    
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha de Estreno</label>
+                        <input type="text" class="form-control" id="fecha" placeholder="Ingrese fecha"
+                            formControlName="fechaDeEstreno">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="publico" class="form-label">Cantidad de Publico</label>
+                        <input type="number" class="form-control" id="publico" placeholder="Ingrese cantidad"
+                            formControlName="cantidadDePublico">
+                    </div>
+                    <div class="mb-3">
+                        <label for="foto" class="form-label">Link Foto</label>
+                        <input type="text" class="form-control" id="foto" placeholder="Ingrese link de https://www.themoviedb.org/"
+                            formControlName="imagen">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="pais">Actores Seleccionados</label>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let item of listaActores"> 
+                            <input type="text" class="form-control" value="{{item.nombre}} {{item.apellido}}" disabled>
+                        </li>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 d-grid gap-2">
+                            <button type="submit" class="btn btn-outline-success btn-block"
+                                [disabled]="this.forma.invalid || !this.actoresAgregados">
+                                Aceptar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

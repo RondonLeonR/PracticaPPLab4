@@ -1,0 +1,13 @@
+<div *ngIf='detalles != null'>
+    <ul class="list-group mb-3 card-body overflow-auto">
+        <h3>Detalles del Actor</h3>
+        <div>
+            <h6>Nombre: {{detalles.nombre}}</h6>
+            <h6>Apelldio: {{detalles.apellido}}</h6>
+            <h6>Edad: {{detalles.edad}}</h6>
+            <h6 *ngIf="detalles.sexo == 'M'">Sexo: Masculino</h6>
+            <h6 *ngIf="detalles.sexo == 'F'">Sexo: Femenino</h6>
+            <h6>Nacionalidad: {{detalles.nacionalidad.name}}</h6>
+        </div>
+    </ul>
+</div>

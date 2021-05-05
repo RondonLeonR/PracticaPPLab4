@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "practica-pp"
+  },
+  "targets": {
+    "practicalab4-39a4c": {
+      "hosting": {
+        "Practica-PP": [
+          "practicalab4-39a4c"
+        ]
+      }
+    }
   }
 }

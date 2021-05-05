@@ -1,4 +1,4 @@
-import { DeclarationListEmitMode } from "@angular/compiler";
+import { Actor } from "./actor";
 
 export class Pelicula {
     public id: number;
@@ -7,4 +7,5 @@ export class Pelicula {
     public fechaDeEstreno: string;
     public cantidadDePublico: number;
     public FotoDeLaPelicula: any;
+    public actores?:Array<Actor>;
 }

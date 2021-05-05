@@ -12,9 +12,9 @@
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-4">
-                <h2>Para Borrar</h2>
-
-                <p><a class="btn btn-secondary" href="#" role="button">Borrar</a></p>
+                <div class="card-body">
+                    <app-tabla-actor [pelicula]="pelicula"></app-tabla-actor>
+                </div>
             </div>
             <!--card bg-dark text-white-->
             <div  class="col-md-4" >
@@ -22,10 +22,6 @@
                     <app-detalle-pelicula [pelicula]="pelicula"></app-detalle-pelicula>
                 </div>
 
-            </div>
-            <div class="col-md-4">
-                <h2>Modificar</h2>
-                <p><a class="btn btn-secondary" href="#" role="button">Guardar cambios</a></p>
             </div>
         </div>
 

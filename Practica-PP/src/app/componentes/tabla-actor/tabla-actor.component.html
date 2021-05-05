@@ -1,0 +1,14 @@
+<div *ngIf='listaActoresPelicula()'>
+    <div>
+        <ul class="list-group mb-3 card-body overflow-auto">
+            <h3>Actores</h3>
+            <li type="text" class="list-group-item d-flex justify-content-between"
+                *ngFor="let item of this.listaActores">
+                <div>
+                    <h6>{{item.nombre}}</h6>
+                    <h6>{{item.apellido}}</h6>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

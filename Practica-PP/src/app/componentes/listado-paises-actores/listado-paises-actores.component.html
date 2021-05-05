@@ -1,0 +1,11 @@
+<div *ngIf='detallePais != null'>
+    <ul class="list-group mb-3 card-body overflow-auto" >
+        <h3>Detalles del Pais</h3>
+        <div>
+            <h6>Nacionalidad: {{detallePais.nacionalidad.name}}</h6>
+            <h6>Capital: {{detallePais.nacionalidad.capital}}</h6>
+            <h6>Poblacion: {{detallePais.nacionalidad.population}}</h6>
+            <img [src]="detallePais.nacionalidad.flag" alt="bandera del pais" width="100px" height="80px" style="margin-left: 50px;"/>
+        </div>
+    </ul>
+</div>

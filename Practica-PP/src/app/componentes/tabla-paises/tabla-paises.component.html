@@ -1,5 +1,7 @@
-<div *ngFor="let item of this.listadoPaises">
-    <li *ngIf="item.population > 40000000" (click)="PaisSeleccionado(item)" class="list-group-item d-flex justify-content-between lh-condensed">
+<!--*ngIf="item.population > 40000000" Dentro del li, otra manera de limitar-->
+
+<div *ngFor="let item of this.listadoPaises | slice:0:20 ">
+    <li (click)="PaisSeleccionado(item)" class="list-group-item d-flex justify-content-between lh-condensed">
         <div>
             <h6 class="my-0">{{item.name}}</h6>
             <small class="text-muted">{{item.capital}}</small>

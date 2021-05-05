@@ -1,0 +1,14 @@
+<table class="table table-hover">
+    <thead>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let actor of listadoActores | async" (click)="detalles(actor)">
+            <td>{{actor.nombre}}</td>
+            <td>{{actor.apellido}}</td>
+            <td>{{actor.edad}}</td>
+        </tr>
+    </tbody>
+</table>
